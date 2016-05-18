@@ -57,9 +57,6 @@ public class SkipList implements Dictionary {
 
     @Override
     public void insert(final Elem element) {
-        try {
-
-
             final Elem[] usedPath = findShortestPath(element.getKey());
             final int levels = calculateLevels();
             element.next = new Elem[levels];
@@ -68,9 +65,7 @@ public class SkipList implements Dictionary {
                 usedPath[i].next[i] = element;
                 element.next[i] = tmp;
             }
-        }catch (ArrayIndexOutOfBoundsException ex) {
-            System.out.println(ex);
-        }
+
     }
 
     @Override
